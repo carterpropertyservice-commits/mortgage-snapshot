@@ -1,0 +1,40 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: var(--primary-bg);
+  color: var(--text-primary);
+  width: 1080px;
+  min-height: 1350px;
+}
+.container { padding: 32px; display: flex; flex-direction: column; gap: 24px; }
+.cache-banner { background: #D97706; color: #fff; text-align: center; padding: 8px; font-weight: 600; }
+.header { display: flex; align-items: center; gap: 20px; padding-bottom: 20px; border-bottom: 3px solid var(--divider); }
+.logo { height: 80px; width: auto; }
+.header-text h1 { font-size: 32px; font-weight: 700; margin-bottom: 4px; }
+.header-text p { font-size: 18px; color: var(--text-secondary); }
+.mnd-headline { background: var(--accent-panel); padding: 16px 20px; border-radius: 8px; font-size: 18px; line-height: 1.4; }
+.mnd-headline a { color: var(--highlight); text-decoration: none; }
+.mnd-date { display: block; font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+.panel { background: var(--divider); border-radius: 12px; padding: 24px; }
+.panel h2 { font-size: 22px; margin-bottom: 16px; color: var(--highlight); }
+.rates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.rate-card { background: var(--accent-panel); padding: 20px; border-radius: 8px; text-align: center; }
+.rate-card .label { font-size: 14px; color: var(--text-secondary); margin-bottom: 8px; }
+.rate-card .value { font-size: 36px; font-weight: 700; }
+.rate-card .date { font-size: 12px; color: var(--text-secondary); margin-top: 4px; }
+.disclaimer { font-size: 12px; color: var(--text-secondary); margin-top: 12px; font-style: italic; }
+.limits-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.limits-table th, .limits-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--primary-bg); }
+.limits-table th { color: var(--highlight); font-weight: 600; }
+.fha-info ul { list-style: none; margin: 12px 0; }
+.fha-info li { padding: 8px 0; padding-left: 24px; position: relative; color: var(--text-secondary); }
+.fha-info li::before { content: "•"; position: absolute; left: 0; color: var(--highlight); }
+.fha-info .source { font-size: 12px; color: var(--secondary-accent); margin-top: 8px; }
+.cta { background: linear-gradient(135deg, var(--accent-panel), var(--secondary-accent)); padding: 24px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; }
+.cta-text { font-size: 18px; margin-bottom: 12px; }
+.cta-btn { display: inline-block; background: var(--highlight); color: var(--divider); padding: 14px 28px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 16px; }
+.qr { background: #fff; padding: 8px; border-radius: 8px; }
+.footer { border-top: 2px solid var(--divider); padding-top: 20px; font-size: 13px; color: var(--text-secondary); }
+.footer-row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer a { color: var(--secondary-accent); text-decoration: none; }
+.brand-line { margin-top: 16px; font-size: 15px; color: var(--text-primary); }

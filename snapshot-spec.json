@@ -1,0 +1,73 @@
+{
+  "brand": {
+    "agent_name": "Chris Carter",
+    "brokerage": "Keller Williams Innovate",
+    "phone": "910-540-3836",
+    "lead_url": "https://app.kw.com/KWGIXUN3IKB",
+    "tagline": "Coastal NC Market Intelligence & Financing Insights"
+  },
+  "colors": {
+    "primary_bg": "#5E6F7F",
+    "accent_panel": "#4F9AC8",
+    "secondary_accent": "#7FB3D1",
+    "highlight": "#4FC3B3",
+    "text_primary": "#FFFFFF",
+    "text_secondary": "#E3E6E8",
+    "divider": "#1E2B38"
+  },
+  "region": {
+    "label": "Coastal North Carolina",
+    "counties": ["Brunswick County, NC", "New Hanover County, NC", "Pender County, NC"]
+  },
+  "content": {
+    "header_title": "Daily Mortgage & Market Snapshot",
+    "header_subtitle": "Coastal North Carolina",
+    "block1_title": "Mortgage Rate Benchmarks",
+    "block1_disclaimer": "Benchmarks represent market indicators and are not loan quotes.",
+    "block2_title": "Current Loan Limits – Coastal NC",
+    "block3_title": "FHA ABOVE THE LOAN LIMIT",
+    "block3_bullets": [
+      "FHA limits apply to base loan amount, not purchase price",
+      "Buyers may exceed limits with additional cash",
+      "FHA may be less competitive than conventional at higher price points"
+    ],
+    "block3_source": "HUD Handbook 4000.1 / FHFA Loan Limit Guidance",
+    "block4_line": "Search Homes • Track Payments • Get Market Alerts",
+    "block4_button": "Launch Chris Carter Home Search App",
+    "footer_updated_label": "Last Updated",
+    "footer_sources_label": "Data Sources",
+    "footer_sources": [
+      {"label": "Mortgage News Daily (RSS)", "url": "https://www.mortgagenewsdaily.com/rss/"},
+      {"label": "FRED (30Y PMMS)", "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"},
+      {"label": "FRED (15Y PMMS)", "url": "https://fred.stlouisfed.org/series/MORTGAGE15US"},
+      {"label": "FRED (10Y Treasury)", "url": "https://fred.stlouisfed.org/series/DGS10"}
+    ],
+    "footer_note": "Updated Automatically Daily"
+  },
+  "data": {
+    "fred_series": {"mortgage_30y": "MORTGAGE30US", "mortgage_15y": "MORTGAGE15US", "treasury_10y": "DGS10"},
+    "mnd_rss_url": "https://www.mortgagenewsdaily.com/rss/",
+    "timezone": "America/New_York"
+  },
+  "layout": {
+    "primary_format": "portrait_1080x1350",
+    "export_pdf_letter": true,
+    "export_portrait_1080x1350": true,
+    "export_story_1080x1920": true,
+    "logo_path": "assets/logo.png",
+    "cta_qr_enabled": true
+  },
+  "loan_limits": {
+    "year": 2026,
+    "conventional_fhfa": {
+      "Brunswick County, NC": {"1": 832750, "2": 1066250, "3": 1288800, "4": 1601750},
+      "New Hanover County, NC": {"1": 832750, "2": 1066250, "3": 1288800, "4": 1601750},
+      "Pender County, NC": {"1": 832750, "2": 1066250, "3": 1288800, "4": 1601750}
+    },
+    "fha_forward_hud": {
+      "Brunswick County, NC": {"1": 541287, "2": 693050, "3": 837700, "4": 1041125},
+      "New Hanover County, NC": {"1": 541287, "2": 693050, "3": 837700, "4": 1041125},
+      "Pender County, NC": {"1": 541287, "2": 693050, "3": 837700, "4": 1041125}
+    }
+  }
+}
