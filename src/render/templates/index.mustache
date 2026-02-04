@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080" />
+  <title>Daily Mortgage & Market Snapshot</title>
+  <link rel="stylesheet" href="css/snapshot.css">
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      {{#logoDataUrl}}<img src="{{logoDataUrl}}" class="logo" alt="Logo">{{/logoDataUrl}}
+      <div class="header-text">
+        <h1>{{brand.agent_name}}</h1>
+        <p>{{brand.brokerage}} • {{region.label}}</p>
+      </div>
+    </div>
+
+    <div class="mnd-headline">
+      📰 <a href="{{mnd.link}}" target="_blank" rel="noreferrer">{{mnd.title}}</a>
+      {{#mnd.pubDate}}<span class="mnd-date"> ({{mnd.pubDate}})</span>{{/mnd.pubDate}}
+    </div>
+
+    <div class="panel">
+      <h2>{{content.block1_title}}</h2>
+      <div class="rates-grid">
+        <div class="rate-card">
+          <div class="label">30-Year Fixed</div>
+          <div class="value">{{rates.mortgage_30y.display}}</div>
+          <div class="date">{{rates.mortgage_30y.date}}</div>
+        </div>
+        <div class="rate-card">
+          <div class="label">15-Year Fixed</div>
+          <div class="value">{{rates.mortgage_15y.display}}</div>
+          <div class="date">{{rates.mortgage_15y.date}}</div>
+        </div>
+        <div class="rate-card">
+          <div class="label">10-Year Treasury</div>
+          <div class="value">{{rates.treasury_10y.display}}</div>
+          <div class="date">{{rates.treasury_10y.date}}</div>
+        </div>
+      </div>
+      <p class="disclaimer">{{content.block1_disclaimer}}</p>
+      {{#fromCache}}<p class="disclaimer">Showing cached data from {{cacheTime}}</p>{{/fromCache}}
+    </div>
+
+    <div class="panel">
+      <h2>{{content.block2_title}} ({{loan_limits.year}})</h2>
+      <table class="limits-table">
+        <tr><th>Type</th><th>1-Unit</th><th>2-Unit</th><th>3-Unit</th><th>4-Unit</th></tr>
+        <tr>
+          <td>Conventional (FHFA)</td>
+          <td>{{limits.conv.u1}}</td><td>{{limits.conv.u2}}</td><td>{{limits.conv.u3}}</td><td>{{limits.conv.u4}}</td>
+        </tr>
+        <tr>
+          <td>FHA Forward (HUD)</td>
+          <td>{{limits.fha.u1}}</td><td>{{limits.fha.u2}}</td><td>{{limits.fha.u3}}</td><td>{{limits.fha.u4}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="panel fha-info">
+      <h2>{{content.block3_title}}</h2>
+      <ul>
+        {{#content.block3_bullets}}<li>{{.}}</li>{{/content.block3_bullets}}
+      </ul>
+      <p class="source">{{content.block3_source}}</p>
+    </div>
+
+    <div class="cta">
+      <div>
+        <p class="cta-text">{{content.block4_line}}</p>
+        <a href="{{brand.lead_url}}" class="cta-btn" target="_blank" rel="noreferrer">{{content.block4_button}}</a>
+        <div class="cta-meta">{{brand.phone}}</div>
+      </div>
+      <div class="qr">
+        <img src="{{qrDataUrl}}" alt="QR Code" width="120" height="120">
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-row">
+        <span><strong>{{content.footer_updated_label}}:</strong> {{updatedAt}}</span>
+        <span><strong>{{content.footer_sources_label}}:</strong>
+          {{#content.footer_sources}}
+            <a href="{{url}}" target="_blank" rel="noreferrer">{{label}}</a>
+          {{/content.footer_sources}}
+        </span>
+      </div>
+      <p class="brand-line">{{brand.agent_name}} • {{brand.brokerage}} • {{brand.phone}}</p>
+    </div>
+
+  </div>
+</body>
+</html>

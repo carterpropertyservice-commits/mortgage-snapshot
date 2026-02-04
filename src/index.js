@@ -1,3 +1,6 @@
+import 'dotenv/config';
+
+
 import { fetchAllFred } from './data/fetch-fred.js';
 import { fetchMndRss } from './data/fetch-mnd-rss.js';
 import { loadCache, saveCache } from './data/cache.js';

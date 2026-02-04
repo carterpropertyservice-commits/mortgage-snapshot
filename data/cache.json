@@ -1,0 +1,23 @@
+{
+  "rates": {
+    "mortgage_30y": {
+      "value": 6.1,
+      "date": "2026-01-29"
+    },
+    "mortgage_15y": {
+      "value": 5.49,
+      "date": "2026-01-29"
+    },
+    "treasury_10y": {
+      "value": 4.29,
+      "date": "2026-02-02"
+    }
+  },
+  "mnd": {
+    "title": "Rate update available",
+    "link": "https://www.mortgagenewsdaily.com/rss/",
+    "pubDate": null
+  },
+  "fetchedAt": "2026-02-04T20:15:14.639Z",
+  "fromCache": false
+}

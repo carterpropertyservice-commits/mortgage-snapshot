@@ -6,8 +6,9 @@
     "generate": "node src/index.js"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "mustache": "^4.2.0",
-    "playwright": "^1.40.0",
+    "playwright": "^1.58.1",
     "qrcode": "^1.5.3"
   }
 }
