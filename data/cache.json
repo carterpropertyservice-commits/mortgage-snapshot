@@ -1,16 +1,16 @@
 {
   "rates": {
     "mortgage_30y": {
-      "value": 6.1,
-      "date": "2026-01-29"
+      "value": 6.11,
+      "date": "2026-02-05"
     },
     "mortgage_15y": {
-      "value": 5.49,
-      "date": "2026-01-29"
+      "value": 5.5,
+      "date": "2026-02-05"
     },
     "treasury_10y": {
       "value": 4.29,
-      "date": "2026-02-02"
+      "date": "2026-02-04"
     }
   },
   "mnd": {
@@ -18,6 +18,6 @@
     "link": "https://www.mortgagenewsdaily.com/rss/",
     "pubDate": null
   },
-  "fetchedAt": "2026-02-04T20:15:14.639Z",
+  "fetchedAt": "2026-02-05T21:51:51.220Z",
   "fromCache": false
 }
