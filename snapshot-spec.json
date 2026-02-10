@@ -45,10 +45,14 @@
     "footer_note": "Updated Automatically Daily"
   },
   "data": {
-    "fred_series": {"mortgage_30y": "MORTGAGE30US", "mortgage_15y": "MORTGAGE15US", "treasury_10y": "DGS10"},
-    "mnd_rss_url": "https://www.mortgagenewsdaily.com/rss/",
-    "timezone": "America/New_York"
-  },
+  "fred_series": {
+    "mortgage_30y_daily": "OBMMIC30YF",
+    "mortgage_15y_daily": "OBMMIC15YF",
+    "mortgage_30y_weekly": "MORTGAGE30US",
+    "mortgage_15y_weekly": "MORTGAGE15US",
+    "treasury_10y": "DGS10"
+  }
+},
   "layout": {
     "primary_format": "portrait_1080x1350",
     "export_pdf_letter": true,
