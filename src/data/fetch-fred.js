@@ -10,11 +10,27 @@ export async function fetchFredSeries(seriesId) {
 }
 
 export async function fetchAllFred(spec) {
-  const series = spec.data.fred_series;
-  const [mortgage_30y, mortgage_15y, treasury_10y] = await Promise.all([
-    fetchFredSeries(series.mortgage_30y),
-    fetchFredSeries(series.mortgage_15y),
-    fetchFredSeries(series.treasury_10y)
+  const s = spec.data.fred_series;
+
+  const [
+    mortgage_30y_daily,
+    mortgage_15y_daily,
+    mortgage_30y_weekly,
+    mortgage_15y_weekly,
+    treasury_10y
+  ] = await Promise.all([
+    fetchFredSeries(s.mortgage_30y_daily),
+    fetchFredSeries(s.mortgage_15y_daily),
+    fetchFredSeries(s.mortgage_30y_weekly),
+    fetchFredSeries(s.mortgage_15y_weekly),
+    fetchFredSeries(s.treasury_10y)
   ]);
-  return { mortgage_30y, mortgage_15y, treasury_10y };
+
+  return {
+    mortgage_30y_daily,
+    mortgage_15y_daily,
+    mortgage_30y_weekly,
+    mortgage_15y_weekly,
+    treasury_10y
+  };
 }
