@@ -1,9 +1,9 @@
 {
   "brand": {
     "agent_name": "Chris Carter",
-    "brokerage": "Keller Williams Innovate",
+    "brokerage": "Ivester Jackson Coastal | Christie's International Real Estate",
     "phone": "910-540-3836",
-    "lead_url": "https://app.kw.com/KWGIXUN3IKB",
+    "lead_url": "http://ChrisCarter.IJCoastal.com",
     "tagline": "Coastal NC Market Intelligence & Financing Insights"
   },
   "colors": {
@@ -33,7 +33,7 @@
     ],
     "block3_source": "HUD Handbook 4000.1 / FHFA Loan Limit Guidance",
     "block4_line": "Search Homes • Track Payments • Get Market Alerts",
-    "block4_button": "Launch Chris Carter Home Search App",
+    "block4_button": "Visit ChrisCarter.IJCoastal.com",
     "footer_updated_label": "Last Updated",
     "footer_sources_label": "Data Sources",
     "footer_sources": [
@@ -45,14 +45,15 @@
     "footer_note": "Updated Automatically Daily"
   },
   "data": {
-  "fred_series": {
-    "mortgage_30y_daily": "OBMMIC30YF",
-    "mortgage_15y_daily": "OBMMIC15YF",
-    "mortgage_30y_weekly": "MORTGAGE30US",
-    "mortgage_15y_weekly": "MORTGAGE15US",
-    "treasury_10y": "DGS10"
-  }
-},
+    "timezone": "America/New_York",
+    "fred_series": {
+      "mortgage_30y_daily": "OBMMIC30YF",
+      "mortgage_15y_daily": "OBMMIC15YF",
+      "mortgage_30y_weekly": "MORTGAGE30US",
+      "mortgage_15y_weekly": "MORTGAGE15US",
+      "treasury_10y": "DGS10"
+    }
+  },
   "layout": {
     "primary_format": "portrait_1080x1350",
     "export_pdf_letter": true,
