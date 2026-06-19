@@ -30,31 +30,29 @@ export async function buildHtml(spec, data) {
     logoDataUrl,
     qrDataUrl,
     fromCache: data.fromCache,
-    cacheTime: data.fetchedAt ? new Date(data.fetchedAt).toLocaleString('en-US', { timeZone: spec.data.timezone }) : '',
-    updatedAt: new Date().toLocaleString('en-US', { timeZone: spec.data.timezone, dateStyle: 'full', timeStyle: 'short' }),
+    cacheTime: data.fetchedAt
+      ? new Date(data.fetchedAt).toLocaleString('en-US', { timeZone: spec.data.timezone })
+      : '',
+    updatedAt: new Date().toLocaleString('en-US', {
+      timeZone: spec.data.timezone,
+      dateStyle: 'full',
+      timeStyle: 'short'
+    }),
     mnd: data.mnd,
     rates: {
-  mortgage_30y_daily: {
-    display: pct(data.rates.mortgage_30y_daily?.value),
-    date: data.rates.mortgage_30y_daily?.date
-  },
-  mortgage_15y_daily: {
-    display: pct(data.rates.mortgage_15y_daily?.value),
-    date: data.rates.mortgage_15y_daily?.date
-  },
-  mortgage_30y_weekly: {
-    display: pct(data.rates.mortgage_30y_weekly?.value),
-    date: data.rates.mortgage_30y_weekly?.date
-  },
-  mortgage_15y_weekly: {
-    display: pct(data.rates.mortgage_15y_weekly?.value),
-    date: data.rates.mortgage_15y_weekly?.date
-  },
-  treasury_10y: {
-    display: pct(data.rates.treasury_10y?.value),
-    date: data.rates.treasury_10y?.date
-  }
-},
+      mortgage_30y: {
+        display: pct(data.rates.mortgage_30y_daily?.value),
+        date: data.rates.mortgage_30y_daily?.date
+      },
+      mortgage_15y: {
+        display: pct(data.rates.mortgage_15y_daily?.value),
+        date: data.rates.mortgage_15y_daily?.date
+      },
+      treasury_10y: {
+        display: pct(data.rates.treasury_10y?.value),
+        date: data.rates.treasury_10y?.date
+      }
+    },
     limits: {
       conv: { u1: fmt(conv['1']), u2: fmt(conv['2']), u3: fmt(conv['3']), u4: fmt(conv['4']) },
       fha: { u1: fmt(fha['1']), u2: fmt(fha['2']), u3: fmt(fha['3']), u4: fmt(fha['4']) }
@@ -62,9 +60,13 @@ export async function buildHtml(spec, data) {
   };
 
   const html = Mustache.render(template, view);
+
   const cssPath = path.join(__dirname, 'css', 'snapshot.css');
   const css = fs.readFileSync(cssPath, 'utf-8');
-  const finalHtml = html.replace('<link rel="stylesheet" href="css/snapshot.css">', `<style>${css}</style>`);
+  const finalHtml = html.replace(
+    '<link rel="stylesheet" href="css/snapshot.css">',
+    `<style>${css}</style>`
+  );
 
   fs.writeFileSync(path.join(root, 'public', 'index.html'), finalHtml);
   console.log('Built index.html');
