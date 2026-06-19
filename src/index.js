@@ -1,4 +1,6 @@
-jsasync function main() {
+js
+
+  async function main() {
   const spec = JSON.parse(fs.readFileSync(path.join(root, 'snapshot-spec.json')));
   let data = { rates: {}, mnd: {}, fetchedAt: null, fromCache: false };
   const cached = loadCache();
