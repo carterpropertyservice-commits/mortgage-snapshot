@@ -1,3 +1,15 @@
+import 'dotenv/config';
+import { fetchAllFred } from './data/fetch-fred.js';
+import { fetchMndRss } from './data/fetch-mnd-rss.js';
+import { loadCache, saveCache } from './data/cache.js';
+import { buildHtml } from './render/html.js';
+import { renderAssets } from './export/render-assets.js';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const root = path.join(__dirname, '..');
 
 async function main() {
   const spec = JSON.parse(fs.readFileSync(path.join(root, 'snapshot-spec.json')));
