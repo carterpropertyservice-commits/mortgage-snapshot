@@ -3,94 +3,233 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1080" />
-  <title>Daily Mortgage & Market Snapshot</title>
+  <title>Daily Mortgage & Market Snapshot – Coastal NC</title>
   <link rel="stylesheet" href="css/snapshot.css">
+  <!-- Cloudflare Web Analytics: replace TOKEN with your CF site token -->
+  <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token":"REPLACE_WITH_CF_TOKEN"}'></script> -->
 </head>
 <body>
-  <div class="container">
+<div class="container">
 
-    <div class="header">
-      {{#logoDataUrl}}<img src="{{logoDataUrl}}" class="logo" alt="Logo">{{/logoDataUrl}}
-      <div class="header-text">
-        <h1>{{brand.agent_name}}</h1>
-        <p>{{brand.brokerage}} • {{region.label}}</p>
-      </div>
+  <!-- HEADER -->
+  <div class="header">
+    {{#logoDataUrl}}<img src="{{logoDataUrl}}" class="logo" alt="Logo">{{/logoDataUrl}}
+    <div class="header-text">
+      <div class="header-title">{{content.header_title}}</div>
+      <div class="header-sub">{{content.header_subtitle}}</div>
+      <div class="header-agent">{{brand.agent_name}} · {{brand.brokerage}}</div>
     </div>
-
-    <div class="mnd-headline">
-      📰 <a href="{{mnd.link}}" target="_blank" rel="noreferrer">{{mnd.title}}</a>
-      {{#mnd.pubDate}}<span class="mnd-date"> ({{mnd.pubDate}})</span>{{/mnd.pubDate}}
-    </div>
-
-    <div class="panel">
-      <h2>{{content.block1_title}}</h2>
-      <div class="rates-grid">
-        <div class="rate-card">
-          <div class="label">30-Year Fixed</div>
-          <div class="value">{{rates.mortgage_30y.display}}</div>
-          <div class="date">{{rates.mortgage_30y.date}}</div>
-        </div>
-        <div class="rate-card">
-          <div class="label">15-Year Fixed</div>
-          <div class="value">{{rates.mortgage_15y.display}}</div>
-          <div class="date">{{rates.mortgage_15y.date}}</div>
-        </div>
-        <div class="rate-card">
-          <div class="label">10-Year Treasury</div>
-          <div class="value">{{rates.treasury_10y.display}}</div>
-          <div class="date">{{rates.treasury_10y.date}}</div>
-        </div>
-      </div>
-      <p class="disclaimer">{{content.block1_disclaimer}}</p>
-      {{#fromCache}}<p class="disclaimer">Showing cached data from {{cacheTime}}</p>{{/fromCache}}
-    </div>
-
-    <div class="panel">
-      <h2>{{content.block2_title}} ({{loan_limits.year}})</h2>
-      <table class="limits-table">
-        <tr><th>Type</th><th>1-Unit</th><th>2-Unit</th><th>3-Unit</th><th>4-Unit</th></tr>
-        <tr>
-          <td>Conventional (FHFA)</td>
-          <td>{{limits.conv.u1}}</td><td>{{limits.conv.u2}}</td><td>{{limits.conv.u3}}</td><td>{{limits.conv.u4}}</td>
-        </tr>
-        <tr>
-          <td>FHA Forward (HUD)</td>
-          <td>{{limits.fha.u1}}</td><td>{{limits.fha.u2}}</td><td>{{limits.fha.u3}}</td><td>{{limits.fha.u4}}</td>
-        </tr>
-      </table>
-    </div>
-
-    <div class="panel fha-info">
-      <h2>{{content.block3_title}}</h2>
-      <ul>
-        {{#content.block3_bullets}}<li>{{.}}</li>{{/content.block3_bullets}}
-      </ul>
-      <p class="source">{{content.block3_source}}</p>
-    </div>
-
-    <div class="cta">
-      <div>
-        <p class="cta-text">{{content.block4_line}}</p>
-        <a href="{{brand.lead_url}}" class="cta-btn" target="_blank" rel="noreferrer">{{content.block4_button}}</a>
-        <div class="cta-meta">{{brand.phone}}</div>
-      </div>
-      <div class="qr">
-        <img src="{{qrDataUrl}}" alt="QR Code" width="120" height="120">
-      </div>
-    </div>
-
-    <div class="footer">
-      <div class="footer-row">
-        <span><strong>{{content.footer_updated_label}}:</strong> {{updatedAt}}</span>
-        <span><strong>{{content.footer_sources_label}}:</strong>
-          {{#content.footer_sources}}
-            <a href="{{url}}" target="_blank" rel="noreferrer">{{label}}</a>
-          {{/content.footer_sources}}
-        </span>
-      </div>
-      <p class="brand-line">{{brand.agent_name}} • {{brand.brokerage}} • {{brand.phone}}</p>
-    </div>
-
+    <div class="header-date">{{updatedAt}}</div>
   </div>
+
+  {{#fromCache}}<div class="cache-banner">⚠ Showing cached data from {{cacheTime}} – live fetch unavailable</div>{{/fromCache}}
+
+  <!-- MND HEADLINE -->
+  {{#mnd.title}}
+  <div class="mnd-headline">
+    📰 <a href="{{mnd.link}}" target="_blank" rel="noreferrer">{{mnd.title}}</a>
+    {{#mnd.pubDate}}<span class="mnd-date">{{mnd.pubDate}}</span>{{/mnd.pubDate}}
+  </div>
+  {{/mnd.title}}
+
+  <!-- AT-A-GLANCE ROW -->
+  <div class="section-title">{{content.glance_title}}</div>
+  <div class="glance-row">
+    <div class="glance-badge {{glance.rate_class}}">
+      <div class="gb-type">30-Yr Fixed</div>
+      <div class="gb-value">{{glance.rate_30y}}</div>
+      <div class="gb-label">{{glance.rate_30y_label}}</div>
+    </div>
+    <div class="glance-badge {{glance.inflation_class}}">
+      <div class="gb-type">Inflation</div>
+      <div class="gb-value">{{glance.inflation}}</div>
+      <div class="gb-label">{{glance.inflation_label}}</div>
+    </div>
+    <div class="glance-badge {{glance.jobs_class}}">
+      <div class="gb-type">Unemployment</div>
+      <div class="gb-value">{{glance.jobs}}</div>
+      <div class="gb-label">{{glance.jobs_label}}</div>
+    </div>
+    <div class="glance-badge {{glance.wages_class}}">
+      <div class="gb-type">Wages YoY</div>
+      <div class="gb-value">{{glance.wages}}</div>
+      <div class="gb-label">{{glance.wages_label}}</div>
+    </div>
+  </div>
+
+  <!-- TWO-COLUMN SECTION -->
+  <div class="two-col">
+
+    <!-- LEFT: Market Basics + Income -->
+    <div class="col-left">
+
+      <div class="panel">
+        <h2>{{content.market_basics_title}}</h2>
+        <div class="basics-row">
+          <span class="basics-icon">▶</span>
+          <span>Inflation <strong>{{macro.inflation}}</strong></span>
+          <span class="basics-label">{{macro.inflation_label}}</span>
+        </div>
+        <div class="basics-row">
+          <span class="basics-icon">▶</span>
+          <span>Unemployment <strong>{{macro.unemployment}}</strong></span>
+          <span class="basics-label">{{macro.unemployment_label}}</span>
+        </div>
+        <div class="basics-row">
+          <span class="basics-icon">▶</span>
+          <span>10-Yr Treasury <strong>{{macro.treasury}}</strong></span>
+          <span class="basics-label">{{macro.treasury_label}}</span>
+        </div>
+      </div>
+
+      <div class="panel income-panel">
+        <h2>{{content.income_title}}</h2>
+        <div class="income-row">
+          <span class="income-arrow good">▶</span>
+          <span>Wages <strong>{{macro.wages_yoy}}</strong> YoY</span>
+          <span class="basics-label good-label">Real income growth</span>
+        </div>
+        {{#macro.wages_vs_positive}}
+        <div class="income-row">
+          <span class="income-arrow good">▶</span>
+          <span>Wages &gt; Inflation <strong>{{macro.wages_vs_inflation}}</strong></span>
+          <span class="basics-label good-label">Better affordability</span>
+        </div>
+        {{/macro.wages_vs_positive}}
+        <div class="local-note">
+          <strong>Local Notes:</strong> {{content.local_wage_note}}
+        </div>
+        <div class="consumer-insight">
+          <strong>Consumer Insight:</strong> {{content.consumer_insight}}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Full Rate Panel -->
+    <div class="col-right">
+      <div class="panel rates-panel">
+        <h2>{{content.block1_title}} <span class="mnd-tag">MND</span></h2>
+        <div class="rate-list">
+          <div class="rate-row primary-rate">
+            <span class="rate-label">30-Yr Fixed</span>
+            <span class="rate-value">{{rates.mortgage_30y.display}}</span>
+            <span class="rate-house">🏠</span>
+          </div>
+          <div class="rate-row">
+            <span class="rate-label">15-Yr Fixed</span>
+            <span class="rate-value">{{rates.mortgage_15y.display}}</span>
+            <span class="rate-house">🏠</span>
+          </div>
+          <div class="rate-row">
+            <span class="rate-label">FHA</span>
+            <span class="rate-value">{{rates.fha.display}}</span>
+            <span class="rate-house">🏠</span>
+          </div>
+          <div class="rate-row">
+            <span class="rate-label">VA</span>
+            <span class="rate-value">{{rates.va.display}}</span>
+            <span class="rate-house">🏠</span>
+          </div>
+          <div class="rate-row">
+            <span class="rate-label">USDA</span>
+            <span class="rate-value">{{rates.usda.display}}</span>
+            <span class="rate-house">🏠</span>
+          </div>
+          <div class="rate-row">
+            <span class="rate-label">7/6 ARM</span>
+            <span class="rate-value">{{rates.arm_76.display}}</span>
+            <span class="rate-house">🏠</span>
+          </div>
+          <div class="rate-row">
+            <span class="rate-label">Jumbo</span>
+            <span class="rate-value">{{rates.jumbo.display}}</span>
+            <span class="rate-house">🏠</span>
+          </div>
+        </div>
+        <div class="rate-legend">
+          ✅ Confirmed / Active &nbsp;&nbsp; ⚠ Potential Update / Watch Closely
+        </div>
+        {{#rates.estimated}}
+        <p class="disclaimer">* FHA, VA, USDA, ARM, Jumbo are market spread estimates. Contact a lender for exact quotes.</p>
+        {{/rates.estimated}}
+        <p class="disclaimer">{{content.block1_disclaimer}}</p>
+      </div>
+    </div>
+
+  </div><!-- /two-col -->
+
+  <!-- PROGRAM ALERTS -->
+  <div class="section-title">{{content.program_alerts_title}}</div>
+  <div class="alerts-row">
+    {{#content.program_alerts}}
+    <div class="alert-card {{status_class}}">
+      <div class="alert-status-dot"></div>
+      <div class="alert-type">{{type}}</div>
+      <div class="alert-sub">{{subtitle}}</div>
+      <div class="alert-note">{{note}}</div>
+    </div>
+    {{/content.program_alerts}}
+  </div>
+
+  <!-- MBS & OUTLOOK -->
+  <div class="mbs-line">📊 {{content.mbs_bonds}}</div>
+  <div class="outlook-banner">
+    <span class="outlook-label">{{content.outlook_label}}:</span> {{content.outlook}}
+  </div>
+
+  <!-- LOAN LIMITS -->
+  <div class="panel">
+    <h2>{{content.block2_title}} ({{loan_limits.year}})</h2>
+    <table class="limits-table">
+      <tr><th>Type</th><th>1-Unit</th><th>2-Unit</th><th>3-Unit</th><th>4-Unit</th></tr>
+      <tr>
+        <td>Conventional (FHFA)</td>
+        <td>{{limits.conv.u1}}</td><td>{{limits.conv.u2}}</td><td>{{limits.conv.u3}}</td><td>{{limits.conv.u4}}</td>
+      </tr>
+      <tr>
+        <td>FHA Forward (HUD)</td>
+        <td>{{limits.fha.u1}}</td><td>{{limits.fha.u2}}</td><td>{{limits.fha.u3}}</td><td>{{limits.fha.u4}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- FHA ABOVE LIMIT -->
+  <div class="panel fha-info">
+    <h2>{{content.block3_title}}</h2>
+    <ul>
+      {{#content.block3_bullets}}<li>{{.}}</li>{{/content.block3_bullets}}
+    </ul>
+    <p class="source">{{content.block3_source}}</p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div>
+      <p class="cta-text">{{content.block4_line}}</p>
+      <a href="{{brand.lead_url}}" class="cta-btn" target="_blank" rel="noreferrer">{{content.block4_button}}</a>
+      <div class="cta-meta">{{brand.phone}}</div>
+    </div>
+    {{#layout.cta_qr_enabled}}
+    <div class="qr">
+      <img src="{{qrDataUrl}}" alt="QR Code" width="120" height="120">
+    </div>
+    {{/layout.cta_qr_enabled}}
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-row">
+      <span><strong>{{content.footer_updated_label}}:</strong> {{updatedAt}}</span>
+      <span><strong>{{content.footer_sources_label}}:</strong>
+        {{#content.footer_sources}}<a href="{{url}}" target="_blank" rel="noreferrer">{{label}}</a> {{/content.footer_sources}}
+      </span>
+    </div>
+    <p class="footer-note">{{content.footer_note}}</p>
+    <p class="brand-line">{{brand.agent_name}} · {{brand.brokerage}} · {{brand.phone}}</p>
+    <div class="humor">{{content.humor}}</div>
+  </div>
+
+</div>
 </body>
 </html>

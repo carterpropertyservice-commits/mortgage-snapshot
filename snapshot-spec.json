@@ -3,7 +3,7 @@
     "agent_name": "Chris Carter",
     "brokerage": "Ivester Jackson Coastal | Christie's International Real Estate",
     "phone": "910-540-3836",
-    "lead_url": "http://ChrisCarter.IJCoastal.com",
+    "lead_url": "http://Chris.IJCoastal.com",
     "tagline": "Coastal NC Market Intelligence & Financing Insights"
   },
   "colors": {
@@ -21,9 +21,11 @@
   },
   "content": {
     "header_title": "Daily Mortgage & Market Snapshot",
-    "header_subtitle": "Coastal North Carolina",
-    "block1_title": "Mortgage Rate Benchmarks",
-    "block1_disclaimer": "Benchmarks represent market indicators and are not loan quotes.",
+    "header_subtitle": "Easy-to-Read Brief for Consumers & Real Estate Professionals",
+    "glance_title": "At-a-Glance Market Overview",
+    "block1_title": "Mortgage Rates Today",
+    "block1_source": "Source: Mortgage News Daily",
+    "block1_disclaimer": "Benchmarks represent market indicators and are not loan quotes. FHA, VA, USDA, ARM, and Jumbo rates are market estimates based on published spreads; contact a lender for a personalized quote.",
     "block2_title": "Current Loan Limits – Coastal NC",
     "block3_title": "FHA ABOVE THE LOAN LIMIT",
     "block3_bullets": [
@@ -33,16 +35,57 @@
     ],
     "block3_source": "HUD Handbook 4000.1 / FHFA Loan Limit Guidance",
     "block4_line": "Search Homes • Track Payments • Get Market Alerts",
-    "block4_button": "Visit ChrisCarter.IJCoastal.com",
+    "block4_button": "Visit Chris.IJCoastal.com",
+    "market_basics_title": "U.S. Market Basics",
+    "income_title": "Income & Wage Trends",
+    "local_wage_note": "NC coastal wages steadily rising; rural areas see slower but consistent gains.",
+    "consumer_insight": "Rising incomes = more buyers entering the market. Good for real estate.",
+    "program_alerts_title": "Program Updates & Alerts",
+    "program_alerts": [
+      {
+        "type": "Conventional",
+        "subtitle": "Fannie/Freddie",
+        "note": "Conservatorship Talks",
+        "status_class": "watch"
+      },
+      {
+        "type": "FHA",
+        "subtitle": "2026 Update",
+        "note": "Limits & Premium Review",
+        "status_class": "active"
+      },
+      {
+        "type": "VA",
+        "subtitle": "Funding Fee",
+        "note": "Paused Thru 2026",
+        "status_class": "active"
+      },
+      {
+        "type": "USDA",
+        "subtitle": "Rural Program",
+        "note": "Rural Expansion Proposed",
+        "status_class": "watch"
+      },
+      {
+        "type": "Jumbo",
+        "subtitle": "High-Balance",
+        "note": "Limits Review",
+        "status_class": "watch"
+      }
+    ],
+    "mbs_bonds": "MBS & Bonds: Stable Market, Watch for Data",
+    "outlook_label": "2026 Outlook",
+    "outlook": "Economy Modest Growth  |  Housing Prices Leveling  |  Mortgages 6.0–6.3%",
+    "humor": "Why did the mortgage rate bring a ruler? To see how far they could fall! 😄",
     "footer_updated_label": "Last Updated",
     "footer_sources_label": "Data Sources",
     "footer_sources": [
-      {"label": "Mortgage News Daily (RSS)", "url": "https://www.mortgagenewsdaily.com/rss/"},
-      {"label": "FRED (30Y PMMS)", "url": "https://fred.stlouisfed.org/series/MORTGAGE30US"},
-      {"label": "FRED (15Y PMMS)", "url": "https://fred.stlouisfed.org/series/MORTGAGE15US"},
-      {"label": "FRED (10Y Treasury)", "url": "https://fred.stlouisfed.org/series/DGS10"}
+      {"label": "Mortgage News Daily", "url": "https://www.mortgagenewsdaily.com/mortgage-rates/"},
+      {"label": "FRED – St. Louis Fed", "url": "https://fred.stlouisfed.org/"},
+      {"label": "HUD / FHA", "url": "https://www.hud.gov/"},
+      {"label": "FHFA Loan Limits", "url": "https://www.fhfa.gov/data/conforming-loan-limit-values"}
     ],
-    "footer_note": "Updated Automatically Daily"
+    "footer_note": "Updated Automatically Daily – Monday through Friday"
   },
   "data": {
     "timezone": "America/New_York",
@@ -51,7 +94,18 @@
       "mortgage_15y_daily": "OBMMIC15YF",
       "mortgage_30y_weekly": "MORTGAGE30US",
       "mortgage_15y_weekly": "MORTGAGE15US",
-      "treasury_10y": "DGS10"
+      "treasury_10y": "DGS10",
+      "cpi": "CPIAUCSL",
+      "unemployment": "UNRATE",
+      "wages": "AHETPI"
+    },
+    "rate_spreads": {
+      "fha": -0.30,
+      "va": -0.28,
+      "usda_low": -0.15,
+      "usda_high": 0.00,
+      "arm_76": -0.52,
+      "jumbo": 0.22
     }
   },
   "layout": {
