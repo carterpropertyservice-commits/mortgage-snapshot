@@ -3,7 +3,9 @@
     "agent_name": "Chris Carter",
     "brokerage": "Ivester Jackson Coastal | Christie's International Real Estate",
     "phone": "910-540-3836",
-    "lead_url": "http://Chris.IJCoastal.com",
+    "email": "Chris@IJCoastal.com",
+    "title": "Broker / REALTOR®",
+    "lead_url": "http://ChrisCarter.IJCoastal.com",
     "tagline": "Coastal NC Market Intelligence & Financing Insights"
   },
   "colors": {
@@ -35,7 +37,7 @@
     ],
     "block3_source": "HUD Handbook 4000.1 / FHFA Loan Limit Guidance",
     "block4_line": "Search Homes • Track Payments • Get Market Alerts",
-    "block4_button": "Visit Chris.IJCoastal.com",
+    "block4_button": "Visit ChrisCarter.IJCoastal.com",
     "market_basics_title": "U.S. Market Basics",
     "income_title": "Income & Wage Trends",
     "local_wage_note": "NC coastal wages steadily rising; rural areas see slower but consistent gains.",
